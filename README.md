@@ -45,6 +45,7 @@ The app runs as a web application in development and as a native iOS app through
 ### 🎉 Event Discovery
 - Explore upcoming and past events
 - Organized event listings
+- google calender is also present
 
 ### 📥 Recruitment Portal
 - Structured onboarding system
