@@ -1,57 +1,75 @@
-# 🎓 University Professional Society Platform
+# 📱 University Society Mobile App
 
-A scalable, role-based web application designed to manage and operate a university student professional society.
+A role-based mobile application built for managing and operating a university student professional society.
 
-This platform enables structured event management, recruitment workflows, and operational dashboards for different user roles.
+This app enables structured event management, recruitment workflows, and operational dashboards for Students, Organizers, and Admins — packaged as a native iOS app using Capacitor.
 
 ---
 
-## 🚀 Features
+## 🚀 Overview
+
+This is a mobile-first application built with:
+
+- ⚛️ React
+- 📘 TypeScript
+- ⚡ Vite
+- 📱 Capacitor (iOS Native Wrapper)
+
+The app runs as a web application in development and as a native iOS app through Capacitor.
+
+---
+
+## 🎯 Core Features
 
 ### 🔐 Authentication
-- Secure login system
-- Role-based access control
-- Automatic dashboard redirection
+- Login system
+- Role-based redirection
+- Structured access control
 
-### 👩‍🎓 Student Dashboard
+### 👩‍🎓 Student Features
 - Personalized dashboard
 - Discover upcoming events
-- Apply through recruitment portal
+- Apply via recruitment portal
 - View gallery and organization details
 
-### 🧑‍💼 Organizer Dashboard
+### 🧑‍💼 Organizer Features
 - Create and manage events
-- Monitor recruitment applications
+- Track recruitment applications
 - Manage society operations
 
-### 🛡 Admin Dashboard
-- Full platform oversight
-- Monitor user roles
-- Administrative controls
+### 🛡 Admin Features
+- Full system oversight
+- Administrative monitoring
+- Role-level management
 
 ### 🎉 Event Discovery
-- Browse and explore events
-- Structured event listings
-- Easy access interface
+- Explore upcoming and past events
+- Organized event listings
 
 ### 📥 Recruitment Portal
-- Application submission system
-- Structured onboarding flow
+- Structured onboarding system
+- Application submission flow
 
 ### 🖼 Gallery
 - Event highlights
-- Media showcase
-- Community engagement section
+- Community media section
 
 ---
 
 ## 🛠 Tech Stack
 
-- ⚛️ React
-- 📘 TypeScript
-- ⚡ Vite
-- 🎨 Component-Based Architecture
-- 📦 Modular File Structure
+Frontend:
+- React
+- TypeScript
+- Vite
+
+Mobile:
+- Capacitor (iOS)
+
+Architecture:
+- Role-based component structure
+- Modular TypeScript types
+- Centralized constants
 
 ---
 
@@ -59,25 +77,26 @@ This platform enables structured event management, recruitment workflows, and op
 
 ```
 .
-├── App.tsx                 # Root application component
-├── index.tsx               # Entry point
-├── index.html              # HTML template
-├── vite.config.ts          # Vite configuration
-├── tsconfig.json           # TypeScript configuration
-├── package.json            # Dependencies & scripts
-├── metadata.json           # Project metadata
-├── constants.ts            # Application constants
-├── types.ts                # Type definitions
+├── App.tsx
+├── index.tsx
+├── index.html
+├── vite.config.ts
+├── tsconfig.json
+├── package.json
+├── metadata.json
+├── constants.ts
+├── types.ts
 │
-├── Login.tsx               # Authentication page
-├── StudentDashboard.tsx    # Student interface
-├── OrganizerDashboard.tsx  # Organizer interface
-├── AdminDashboard.tsx      # Admin interface
-├── EventDiscovery.tsx      # Event listing & discovery
-├── RecruitmentPortal.tsx   # Recruitment workflow
-├── Gallery.tsx             # Media & highlights
-├── AboutSection.tsx        # About the organization
+├── Login.tsx
+├── StudentDashboard.tsx
+├── OrganizerDashboard.tsx
+├── AdminDashboard.tsx
+├── EventDiscovery.tsx
+├── RecruitmentPortal.tsx
+├── Gallery.tsx
+├── AboutSection.tsx
 │
+├── ios/                # Native iOS project (Capacitor)
 └── README.md
 ```
 
@@ -88,7 +107,7 @@ This platform enables structured event management, recruitment workflows, and op
 Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone <your-repo-url>
 cd <project-folder>
 ```
 
@@ -100,13 +119,13 @@ npm install
 
 ---
 
-## 🚀 Run Development Server
+## 🚀 Run in Web Development Mode
 
 ```bash
 npm run dev
 ```
 
-Application runs locally at:
+Runs locally at:
 
 ```
 http://localhost:8080
@@ -114,78 +133,93 @@ http://localhost:8080
 
 ---
 
-## 🏗 Build for Production
+## 📱 Run as iOS App
+
+### 1️⃣ Build frontend
 
 ```bash
 npm run build
 ```
 
-This generates optimized production files in the `dist/` folder.
+### 2️⃣ Sync with Capacitor
+
+```bash
+npx cap sync ios
+```
+
+### 3️⃣ Open in Xcode
+
+```bash
+npx cap open ios
+```
+
+### 4️⃣ Run from Xcode
+
+- Product → Clean Build Folder
+- Cmd + R
 
 ---
 
-## 🧠 Architecture Overview
+## ⚠️ Important Configuration
 
-The system follows a role-based modular architecture:
+In `vite.config.ts`, ensure:
 
-- `App.tsx` controls routing and role detection
-- Dashboards are separated by responsibility
-- Shared types are centralized in `types.ts`
-- Constants stored in `constants.ts`
-- Clean separation of UI and logic
+```ts
+base: "./"
+```
 
-This ensures:
-
-- Scalability
-- Maintainability
-- Clear role boundaries
-- Easy future backend integration
+This is required for proper asset loading inside Capacitor.
 
 ---
 
-## 🔒 Role-Based Flow
+## 🔄 Development Workflow
+
+Whenever frontend changes are made:
+
+```bash
+npm run build
+npx cap sync ios
+```
+
+Then run again from Xcode.
+
+---
+
+## 🧠 App Architecture
+
+The system follows a role-based navigation model:
 
 ```
-Login → Role Identification → Redirect to:
+Login → Role Detection → Redirect to:
 
     Student → StudentDashboard
     Organizer → OrganizerDashboard
     Admin → AdminDashboard
 ```
 
+Designed for scalability and future backend integration.
+
 ---
 
-## 📈 Future Enhancements
+## 📈 Future Improvements
 
 - Backend API integration
 - Database connectivity
-- JWT authentication
-- Role persistence
-- Real-time event updates
-- Analytics dashboard
-- Deployment to production (Vercel / AWS)
-- Mobile packaging via Capacitor
-
----
-
-## 🎯 Use Case
-
-Designed for:
-
-- University student societies
-- Technical chapters
-- Professional campus organizations
-- Recruitment-driven student bodies
+- Secure JWT authentication
+- Push notifications
+- Real-time updates
+- App Store deployment
+- Android support
 
 ---
 
 ## 👩‍💻 Author
 
 Kavya Pandey  
-Built as a structured university operations platform.
+Mobile App Developer
 
 ---
 
 ## 📜 License
 
-This project is for educational and development purposes.
+This project is built for academic and development purposes.
