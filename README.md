@@ -1,4 +1,4 @@
-# 📱 University Society Mobile App
+# 📱 IEEE IGDTUW Mobile App
 
 A role-based mobile application built for managing and operating a university student professional society.
 
