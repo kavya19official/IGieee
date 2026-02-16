@@ -1,0 +1,8 @@
+
+{
+  "name": "IEEE IGDTUW Hub",
+  "description": "A centralized institutional hub for IEEE IGDTUW students, organizers, and admins to manage events, recruitment, and organizational operations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
